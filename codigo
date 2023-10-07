@@ -1,0 +1,27 @@
+import { Canister, Principal, query, Record, StableBTreeMap, nat8, text, update, ic, Vec, Opt, Variant, Result, Err, Ok } from 'azle';
+
+const Institucion = Record({
+    clave: text,
+    nombre: text,
+    nivel: text,
+    contacto: text
+});
+
+const Alumno = Record({
+    correo: text,
+    egreso: nat8,
+});
+
+const Certificado = Record({
+    folio: text,
+    programa: text,
+    institucion: Institucion,
+    alumno: Alumno,
+});
+
+
+let certificados = StableBTreeMap(Principal, Certificado, 0);
+
+export default Canister({
+
+});
